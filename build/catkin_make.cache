@@ -1,2 +1,2 @@
-snake1_control:snake1_description:snake1_gazebo
+Assem1:Assem1_control:snake1_control:snake1_description:snake1_gazebo
 -DCATKIN_DEVEL_PREFIX=/home/hiokhian/snake1_ws/devel -DCMAKE_INSTALL_PREFIX=/home/hiokhian/snake1_ws/install -G Unix Makefiles

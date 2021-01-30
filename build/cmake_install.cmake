@@ -134,6 +134,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/hiokhian/snake1_ws/build/snake1_control/cmake_install.cmake")
   include("/home/hiokhian/snake1_ws/build/snake1_description/cmake_install.cmake")
   include("/home/hiokhian/snake1_ws/build/snake1_gazebo/cmake_install.cmake")
+  include("/home/hiokhian/snake1_ws/build/Assem1_control/cmake_install.cmake")
+  include("/home/hiokhian/snake1_ws/build/Assem1/cmake_install.cmake")
 
 endif()
 

@@ -4,7 +4,9 @@
 <xacro:include filename="$(find snake1_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find snake1_description)/urdf/Untitled.trans" />
 <xacro:include filename="$(find snake1_description)/urdf/Untitled.gazebo" />
-<link name="base_link">
+
+<!--cube-->
+<link name="base_link"> 
   <inertial>
     <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
     <mass value="0.0779757283797401"/>
@@ -25,4 +27,304 @@
   </collision>
 </link>
 
+  <joint name="base_to_second_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="second_link"/>
+    <axis xyz="0 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+<!--2 perpendicular cylinders-->
+<link name="second_link"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Component3_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Component3_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+  <joint name="second_to_third_joint" type="continuous">
+    <parent link="second_link"/>
+    <child link="screw_1"/>
+    <axis xyz="0 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+<!--Screw 1-->
+<link name="screw_1"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/M3_Gear_Screws_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/M3_Gear_Screws_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+  <joint name="third_to_fourth_joint" type="continuous">
+    <parent link="screw_1"/>
+    <child link="screw_2"/>
+    <axis xyz="0 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+<!--Screw 2-->
+<link name="screw_2"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/M3_Gear_Screws_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/M3_Gear_Screws_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+  <joint name="fourth_to_fifth_joint" type="continuous">
+    <parent link="screw_2"/>
+    <child link="screw_3"/>
+    <axis xyz="0 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+
+<!--Screw 3-->
+<link name="screw_3"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/M3_Gear_Screws_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/M3_Gear_Screws_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+  <joint name="fifth_to_sixth_joint" type="continuous">
+    <parent link="screw_3"/>
+    <child link="screw_4"/>
+    <axis xyz="0 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+
+<!--Screw 4-->
+<link name="screw_4"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/M3_Gear_Screws_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/M3_Gear_Screws_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+  <joint name="sixth_to_seventh_joint" type="continuous">
+    <parent link="screw_4"/>
+    <child link="protruding_sticks_1"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+
+<!--Protruding Sticks 1-->
+<link name="protruding_sticks_1"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Protruding_sticks_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Protruding_sticks_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+  <joint name="seventh_to_eighth_joint" type="continuous">
+    <parent link="protruding_sticks_1"/>
+    <child link="spur_gear_1"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+
+<!--Spur Gear 1 48 teeth-->
+<link name="spur_gear_1"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Spur_Gear__48_teeth___1__1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Spur_Gear__48_teeth___1__1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+  <joint name="eighth_to_ninth_joint" type="continuous">
+    <parent link="spur_gear_1"/>
+    <child link="spur_gear_2"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+
+<!--Spur Gear 2 48 teeth-->
+<link name="spur_gear_2"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Spur_Gear__48_teeth___2__1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Spur_Gear__48_teeth___2__1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+  <joint name="ninth_to_tenth_joint" type="continuous">
+    <parent link="spur_gear_2"/>
+    <child link="spur_gear_3"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+
+<!--Spur Gear 3 48 teeth-->
+<link name="spur_gear_3"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Spur_Gear__48_teeth___3__1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Spur_Gear__48_teeth___3__1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+  <joint name="tenth_to_eleventh_joint" type="continuous">
+    <parent link="spur_gear_1"/>
+    <child link="spur_gear_4"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+<!--Spur Gear 4 48 teeth-->
+<link name="spur_gear_4"> 
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.8884825912599977e-10 -0.0013842447169143065 1.74359271045837e-14"/>
+    <mass value="0.0779757283797401"/>
+    <inertia ixx="1.7e-05" ixy="0.0" ixz="-0.0" iyy="1.8e-05" iyz="-0.0" izz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Spur_Gear__48_teeth___4__1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://snake1_description/meshes/Spur_Gear__48_teeth___4__1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
 </robot>
+
+
