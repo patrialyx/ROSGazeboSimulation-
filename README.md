@@ -1,3 +1,3 @@
 # snake1_ws
 
-![Screenshot](snake.png)
+![Screenshot](snake.jpg)
